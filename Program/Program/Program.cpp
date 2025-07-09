@@ -120,6 +120,20 @@ public :
         }
     }
 
+    bool empty()
+    {
+        // if (listsize == 0)
+        // {
+        //     return true;
+        // }
+        // else if (listsize != 0)
+        // {
+        //     return false;
+        // }
+
+        return (head == nullptr);
+    }
+
     ~List()
     {
         while (head != nullptr)
@@ -138,6 +152,8 @@ int main()
 {
     List<int> list;
 
+    cout << list.empty() << endl;
+
     list.push_front(10);
     list.push_front(20);
     list.push_front(30);
@@ -148,6 +164,7 @@ int main()
     list.pop_front();
     list.pop_back();
 
+    cout << list.empty() << endl;
     
 
     return 0;
