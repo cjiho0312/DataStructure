@@ -22,8 +22,8 @@ public:
     List()
     {
         size = 0;
-        head = nullptr;
-        tail = nullptr;
+        head = NULL;
+        tail = NULL;
     }
     ~List();
 };
