@@ -1,3 +1,2 @@
 ﻿  Program.cpp
-C:\Users\Administrator\Desktop\DataStructure\DataStructure\Program\Program\Program.cpp(133,1): warning C4715: 'List<int>::empty': 모든 제어 경로에서 값을 반환하지는 않습니다.
   Program.vcxproj -> C:\Users\Administrator\Desktop\DataStructure\DataStructure\Program\x64\Debug\Program.exe
