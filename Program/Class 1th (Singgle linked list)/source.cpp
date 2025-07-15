@@ -149,6 +149,8 @@ public:
                     listsize--;
 
                     deleteNode = head;
+
+                    return;
                 }
 
                 previousNode = deleteNode;
@@ -193,11 +195,6 @@ int main()
     cout << list.empty() << endl;
 
     list.push_front(10);
-    list.push_front(20);
-    list.push_front(30);
-
-    list.push_back(5);
-    list.push_back(15);
 
     list.Remove(20);
 
