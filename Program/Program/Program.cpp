@@ -3,146 +3,114 @@
 using namespace std;
 
 template <typename T>
-class List
+class Vector
 {
 private:
 
     int size;
+    int capacity;
 
-    struct Node
-    {
-        T data;
-        Node* next;
-    };
-
-    Node* head;
-
+    T* container;
+    
 public:
 
-    List()
+    Vector()
     {
         size = 0;
-        head = nullptr;
+        capacity = 0;
+        container = nullptr;
     }
 
     void push_back(T data)
     {
-        Node* newNode = new Node;
-
-        newNode->data = data;
-
-        if (head == nullptr)
+        if (size == 0)
         {
-            head = newNode;
-            newNode->next = head;
+            resize(1);
+            container[0] = data;
         }
         else
         {
-            newNode->next = head->next;
+            if (size == capacity)
+            {
+                resize(size + 2);
+            }
+
+            int findSeat;
+
             
-            head->next = newNode;
-
-            head = newNode;
+        
         }
+
+
 
         size++;
     }
 
-    void push_front(T data)
+    void resize(int newSize)
     {
-        Node* newNode = new Node;
+        // 1. capacity에 새로운 size 값을 지정함.
 
-        newNode->data = data;
+        capacity = newSize;
 
-        if (head == nullptr)
+        // 2. 새로운 포인터 변수 생성, 포인터가 새로운 메모리 공간을 가리키도록 함.
+
+        T* pointer = new T[capacity];
+
+        // 3. 새로운 메모리 공간의 값을 초기화함.
+
+        for (int i = 0; i < capacity; i++)
         {
-            head = newNode;
-            newNode->next = head;
-        }
-        else
-        {
-            newNode->next = head->next;
-
-            head->next = newNode;
-        }
-
-        size++;
-    }
-
-    void pop_front()
-    {
-        Node* deleteNode = head;
-
-        if (head == nullptr)
-        {
-            cout << "Error" << endl;
-        }
-        else
-        {
-            if (size == 1)
-            {
-                delete deleteNode;
-
-                head = nullptr;
-            }
-            else
-            {
-                deleteNode = head->next;
-
-                head->next = deleteNode->next;
-                
-                delete deleteNode;
-            }
-
-            size--;
+            pointer[i] = NULL;
         }
 
-    }
-
-    void showList()
-    {
-        Node* currentNode = head;
-        int count = 0;
-
-        cout << "List : ";
+        // 4. 기존 배열에 있는 값을 복사해서 새로운 배열에 넣어줌.
 
         for (int i = 0; i < size; i++)
         {
-            cout << "> " << currentNode->data << " -";
-
-            currentNode = currentNode->next;
-            count++;
+            pointer[i] = container[i];
         }
 
-        cout << "\n      |";
-        for (int i = 0; i < count; i++)
+        // 5. 기존 배열의 메모리를 해제함.
+
+        if (container != nullptr)
         {
-            cout << "______";
+            delete[] container;
         }
-        cout << "|" << endl;
 
+        // 6. 기존 배열을 가리키는 포인터 변수의 값을 새로운 배열의 시작 주소로 변경.
 
+        container = pointer;
     }
 
+    void showArray()
+    {
+        cout << "{ ";
+        for (int i = 0; i < size; i++)
+        {
+            cout << container[i] << " ";
+        }
+        cout << "}";
+    }
 
+    ~Vector()
+    {
+        if (container != nullptr)
+        {
+            delete[] container;
+        }
+    }
 };
 
 int main()
 {
-    List <int> list;
+    Vector<int> vector;
 
-    list.push_back(10);
-    list.push_back(20);
-    list.push_back(30);
-    list.push_back(40);
+    vector.push_back(10);
+    vector.push_back(20);
+    vector.push_back(30);
+    vector.push_back(40);
 
-    list.push_front(5);
-    list.push_front(3);
-    list.push_front(1);
-
-    list.pop_front();
-
-    list.showList();
+    vector.showArray();
 
     return 0;
 }
