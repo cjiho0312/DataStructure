@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Class 3th (Circle Linked Li
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Class 4th (Vector)", "Class 4th (Vector)\Class 4th (Vector).vcxproj", "{EA8017BB-506E-4B56-92C0-8E432A9ABF6C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Class 5th (String)", "Class 5th (String)\Class 5th (String).vcxproj", "{5E6AB880-CCF6-428C-8ABA-3F40FC9BF6DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{EA8017BB-506E-4B56-92C0-8E432A9ABF6C}.Release|x64.Build.0 = Release|x64
 		{EA8017BB-506E-4B56-92C0-8E432A9ABF6C}.Release|x86.ActiveCfg = Release|Win32
 		{EA8017BB-506E-4B56-92C0-8E432A9ABF6C}.Release|x86.Build.0 = Release|Win32
+		{5E6AB880-CCF6-428C-8ABA-3F40FC9BF6DA}.Debug|x64.ActiveCfg = Debug|x64
+		{5E6AB880-CCF6-428C-8ABA-3F40FC9BF6DA}.Debug|x64.Build.0 = Debug|x64
+		{5E6AB880-CCF6-428C-8ABA-3F40FC9BF6DA}.Debug|x86.ActiveCfg = Debug|Win32
+		{5E6AB880-CCF6-428C-8ABA-3F40FC9BF6DA}.Debug|x86.Build.0 = Debug|Win32
+		{5E6AB880-CCF6-428C-8ABA-3F40FC9BF6DA}.Release|x64.ActiveCfg = Release|x64
+		{5E6AB880-CCF6-428C-8ABA-3F40FC9BF6DA}.Release|x64.Build.0 = Release|x64
+		{5E6AB880-CCF6-428C-8ABA-3F40FC9BF6DA}.Release|x86.ActiveCfg = Release|Win32
+		{5E6AB880-CCF6-428C-8ABA-3F40FC9BF6DA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

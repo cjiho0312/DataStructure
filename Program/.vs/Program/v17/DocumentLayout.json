@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{406A17EC-0D3D-4391-AE88-2B063D8EDFEF}|Program\\Program.vcxproj|solutionrelative:Program\\Program.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5E6AB880-CCF6-428C-8ABA-3F40FC9BF6DA}|Class 5th (String)\\Class 5th (String).vcxproj|C:\\Users\\Administrator\\Desktop\\CJH\\DataStructure\\Program\\Class 5th (String)\\source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E6AB880-CCF6-428C-8ABA-3F40FC9BF6DA}|Class 5th (String)\\Class 5th (String).vcxproj|solutionrelative:Class 5th (String)\\source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EA8017BB-506E-4B56-92C0-8E432A9ABF6C}|Class 4th (Vector)\\Class 4th (Vector).vcxproj|C:\\Users\\Administrator\\Desktop\\CJH\\DataStructure\\Program\\Class 4th (Vector)\\source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EA8017BB-506E-4B56-92C0-8E432A9ABF6C}|Class 4th (Vector)\\Class 4th (Vector).vcxproj|solutionrelative:Class 4th (Vector)\\source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -30,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CJH\\DataStructure\\Program\\Class 1th (Singgle linked list)\\source.cpp",
               "RelativeDocumentMoniker": "Class 1th (Singgle linked list)\\source.cpp",
@@ -42,12 +46,11 @@
               "RelativeToolTip": "Class 1th (Singgle linked list)\\source.cpp",
               "ViewState": "AgIAAJkAAAAAAAAAAAAAAA0AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-09T06:20:16.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-09T06:20:16.557Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CJH\\DataStructure\\Program\\Class 2th (Double Linked List)\\source.cpp",
               "RelativeDocumentMoniker": "Class 2th (Double Linked List)\\source.cpp",
@@ -59,7 +62,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CJH\\DataStructure\\Program\\Class 3th (Circle Linked List)\\source.cpp",
               "RelativeDocumentMoniker": "Class 3th (Circle Linked List)\\source.cpp",
@@ -67,12 +70,11 @@
               "RelativeToolTip": "Class 3th (Circle Linked List)\\source.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-17T05:05:50.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-17T05:05:50.32Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CJH\\DataStructure\\Program\\Class 4th (Vector)\\source.cpp",
               "RelativeDocumentMoniker": "Class 4th (Vector)\\source.cpp",
@@ -80,7 +82,19 @@
               "RelativeToolTip": "Class 4th (Vector)\\source.cpp",
               "ViewState": "AgIAAFQAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-18T04:44:20.673Z",
+              "WhenOpened": "2025-07-18T04:44:20.673Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "source.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CJH\\DataStructure\\Program\\Class 5th (String)\\source.cpp",
+              "RelativeDocumentMoniker": "Class 5th (String)\\source.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\CJH\\DataStructure\\Program\\Class 5th (String)\\source.cpp",
+              "RelativeToolTip": "Class 5th (String)\\source.cpp",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAUwIgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-07-21T06:19:37.691Z",
               "EditorCaption": ""
             },
             {
@@ -91,7 +105,7 @@
               "RelativeDocumentMoniker": "Program\\Program.cpp",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\CJH\\DataStructure\\Program\\Program\\Program.cpp",
               "RelativeToolTip": "Program\\Program.cpp",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADgAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-08T04:09:55.732Z",
               "EditorCaption": ""
