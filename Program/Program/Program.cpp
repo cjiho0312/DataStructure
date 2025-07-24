@@ -1,74 +1,106 @@
 ﻿#include <iostream>
-
-#define SIZE 4
+#define SIZE 6
 
 using namespace std;
 
-template <typename T>
-class Queue
+template <typename KEY, typename VALUE>
+class HashTable
 {
-private:
-    int front;
-    int rear;
-    T container[SIZE];
+private :
+
+	struct Node
+	{
+		KEY key;
+		VALUE value;
+		Node* next;
+	};
+
+	struct Bucket
+	{
+		int count;
+		Node* head;
+	};
+
+	Bucket bucket[SIZE];
 
 public:
-    Queue()
-    {
-        front = SIZE - 1;
-        rear = SIZE - 1;
-        
-        for (int i = 0; i < SIZE; i++)
-        {
-            container[i] = NULL;
-        }
-    }
 
-    void push(T data)
-    {
-        int tempFront = SIZE - 1;
+	HashTable()
+	{
+		for (int i = 0; i < SIZE; i++)
+		{
+			bucket[i].count = 0;
+			bucket[i].head = nullptr;
+		}
+	}
 
-        if (rear > 0)
-        {
-            tempFront = front;
-        }
+	template <typename T>
+	const int & hash_function(T key)
+	{
+		unsigned int index = (unsigned int)key % SIZE;
+		
+		return index;
+	}
 
-        if (rear + 1 == tempFront)
-        {
-            cout << "Queue overflow" << endl;
-        }
-        else
-        {
-            if (++rear >= temp)
-            {
-                rear = -1;
-            }
+	Node* created_node(KEY key, VALUE value)
+	{
+		Node* newNode = new Node;
+		newNode->key = key;
+		newNode->value = value;
+		newNode->next = nullptr;
 
-            container[++rear] = data;
-        }
+		return newNode;
+	}
 
-    }
+	void insert(KEY key, VALUE value)
+	{
+		int hashIndex = hash_function(key);
+		Node * newNode = created_node(key, value);
 
-    void showQueue()
-    {
-        for (int i = 0; i < SIZE; i++)
-        {
-            cout << container[i] << " ";
-        }
-    }
+		if (bucket[hashIndex].count == 0)
+		{
+			bucket[hashIndex].head = newNode;
+		}
+		else
+		{
+			newNode->next = bucket[hashIndex].head;
+			bucket[hashIndex].head = newNode;
+		}
 
+		bucket[hashIndex].count++;
+	}
+
+	~HashTable()
+	{
+		Node* deleteNode;
+		Node* nextNode;
+
+		for (int i = 0; i < SIZE; i++)
+		{
+			deleteNode = bucket[i].head;
+			nextNode = bucket[i].head;
+			
+			while (nextNode != nullptr)
+			{
+				nextNode = deleteNode->next;
+
+				delete deleteNode;
+
+				deleteNode = nextNode;
+			}
+			
+		}
+	}
 };
+
 
 int main()
 {
-    Queue <int> queue;
+	HashTable <const char*, int> hashtable;
 
-    queue.push(10);
-    queue.push(20);
-    queue.push(30);
-    queue.push(40);
+	hashtable.insert("Snake", 500);
+	hashtable.insert("Tiger", 2000);
+	hashtable.insert("Horse", 1000);
 
-    queue.showQueue();
-
-    return 0;
+	return 0;
 }
