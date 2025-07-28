@@ -1,33 +1,11 @@
 ﻿  Program.cpp
-C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(40,24): warning C4311: '형식 캐스트': 'T'에서 'unsigned int'(으)로 포인터가 잘립니다.
-C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(40,24): warning C4311:         with
-C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(40,24): warning C4311:         [
-C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(40,24): warning C4311:             T=const char *
-C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(40,24): warning C4311:         ]
-      C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(40,24):
+C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(139,47): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+      C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(139,47):
       템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-          C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(153,31):
-          컴파일되는 클래스 템플릿 인스턴스화 'HashTable<const char *,int>'에 대한 참조를 확인하세요.
-          C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(73,7):
-          클래스 템플릿 멤버 함수 'void HashTable<const char *,int>::erase(KEY)'을(를) 컴파일하는 중입니다.
-          with
-          [
-              KEY=const char *
-          ]
-              C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(160,17):
-              'main'에서 'HashTable<const char *,int>::erase'에 대한 첫 번째 참조를 확인하세요.
-          C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(75,19):
-          컴파일되는 함수 템플릿 인스턴스화 'const int &HashTable<const char *,int>::hash_function<KEY>(T)'에 대한 참조를 확인하세요.
-          with
-          [
-              KEY=const char *,
-              T=const char *
-          ]
+          C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(6,7):
+          클래스 템플릿 'AdjacencyMatrix'을(를) 컴파일하는 동안
   
-C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(40,24): warning C4302: '형식 캐스트': 'T'에서 'unsigned int'(으)로 잘립니다.
-C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(40,24): warning C4302:         with
-C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(40,24): warning C4302:         [
-C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(40,24): warning C4302:             T=const char *
-C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(40,24): warning C4302:         ]
-C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(42,1): warning C4172: 지역 변수 또는 임시 의 주소를 반환하는 중
-  Program.vcxproj -> C:\Users\Administrator\Desktop\CJH\DataStructure\Program\x64\Debug\Program.exe
+C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(139,59): error C2143: 구문 오류: ','이(가) '&' 앞에 없습니다.
+C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(139,16): error C2804: 이항 연산자 '<<'에 매개 변수가 너무 많습니다.
+C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(139,16): error C2333: 'AdjacencyMatrix<T>::operator <<': 함수 선언에 오류가 있습니다. 함수 본문을 건너뜁니다.
+C:\Users\Administrator\Desktop\CJH\DataStructure\Program\Program\Program.cpp(139,16): error C2333: 'AdjacencyMatrix<int>::operator <<': 함수 선언에 오류가 있습니다. 함수 본문을 건너뜁니다.
