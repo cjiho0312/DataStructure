@@ -1,158 +1,91 @@
 ﻿#include <iostream>
-
+#define SIZE 10
 using namespace std;
 
 template <typename T>
-class AdjacencyMatrix
+class AdjacencyList
 {
 private:
+
+	struct Node
+	{
+		T data;
+		Node* next;
+
+		Node(T data, Node* link = nullptr)
+		{
+			this->data = data;
+			next = link;
+		}
+	};
+
 	int size;
-	int capacity;
-	int matrixCount;
-	T* vertex;
-	T** matrix;
+	T vertex[SIZE]; // 집합
+	Node* list[SIZE]; // 리스트
 
 public:
-	AdjacencyMatrix()
-	{ 
+
+	AdjacencyList()
+	{
 		size = 0;
-		capacity = 0;
-		matrixCount = 0;
-		vertex = nullptr;
-		matrix = nullptr;
-	}
-
-	void resize(int newSize)
-	{
-		capacity = newSize;
-
-		T *temp = new T[capacity];
-
-		for (int i = 0; i < newSize; i++)
+		
+		for (int i = 0; i < SIZE; i++)
 		{
-			temp[i] = NULL;
+			vertex[i] = NULL;
+			list[i] = NULL;
 		}
-
-		for (int i = 0; i < size; i++)
-		{
-			vertex[i] = temp[i];
-		}
-
-		if (vertex != nullptr)
-		{
-			delete[] vertex;
-		}
-
-		vertex = temp;
-	}
-
-	void resize()
-	{
-		int** newMatrix = new int * [size];
-
-		for (int i = 0; i < size; i++)
-		{
-			newMatrix = new int[size] {0};
-		}
-
-		for (int i = 0; i < matrixCount; i++)
-		{
-			for (int j = 0; j < size; j++)
-			{
-				newMatrix[i][j] = matrix[i][j];
-			}
-		}
-
-		if (matrix != nullptr)
-		{
-			for (int i = 0; i < matrixCount; i++)
-			{
-				delete[] matrix[i];
-			}
-
-			delete[] matrix;
-		}
-
-		matrix = newMatrix;
-
-		matrixCount = size;
 	}
 
 	void push(T data)
 	{
-		if (capacity <= 0)
+		if (size >= SIZE)
 		{
-			resize(1);
+			cout << "Adjacency list overflow" << endl;
 		}
-		else if (size >= capacity)
+		else
 		{
-			resize(capacity * 2);
+			vertex[size++] = data;
 		}
-
-		vertex[size++] = data;
-	
 	}
 
 	void edge(int i, int j)
 	{
 		if (size <= 0)
 		{
-			cout << "adjancency matrix is empty" << endl;
+			cout << "adjancency list is empty" << endl;
 		}
 		else if (i >= size || j >= size)
 		{
 			cout << "index out of range" << endl;
 		}
-
 		else
 		{
-			if (matrix == nullptr)
-			{
-				matrixCount = size;
-
-				matrix = new int* [size];
-
-				for (int i = 0; i < size; i++)
-				{
-					matrix[i] = new int[size];
-				}
-
-				for (int i = 0; i < size; i++)
-				{
-					for (int j = 0; j < size; j++)
-					{
-						matrix[i][j] = 0;
-					}
-				}
-			}
-
-			else if (matrixCount < size)
-			{
-				resize();
-			}
-
-			matrix[i][j] = 1;
-			matrix[j][i] = 1;
+			list[i] = new Node(vertex[j], list[i]);
+			list[j] = new Node(vertex[i], list[j]);
 		}
 	}
 
-	// std::ostream& operator << (std::ostream&out, const matrix & m)
-	// {
-	// 	out << m[i][j];
-	// 	return out;
-	// }
-
+	~AdjacencyList()
+	{
+		// for (int i = 0; i < SIZE; i++)
+		// {
+		// 		if (list[i] != nullptr)
+		// 		{
+		// 			delete[] list[i];
+		// 		}
+		// }
+	}
 };
 
 int main()
 {
-	AdjacencyMatrix<int> A;
+	AdjacencyList<char> A;
 
-	A.push(5);
-	A.push(7);
-	A.push(12);
+	A.push('A');
+	A.push('B');
+	A.push('C');
 
-	A.edge(0, 2);
-		
+	A.edge(0, 1);
+
 	return 0;
 }
