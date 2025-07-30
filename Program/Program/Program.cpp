@@ -1,91 +1,162 @@
 ﻿#include <iostream>
-#define SIZE 10
+
 using namespace std;
 
 template <typename T>
-class AdjacencyList
+class Set
 {
 private:
 
 	struct Node
 	{
 		T data;
-		Node* next;
 
-		Node(T data, Node* link = nullptr)
-		{
-			this->data = data;
-			next = link;
-		}
+		Node* left;
+		Node* right;
 	};
 
 	int size;
-	T vertex[SIZE]; // 집합
-	Node* list[SIZE]; // 리스트
+	Node* root;
 
 public:
-
-	AdjacencyList()
+	Set()
 	{
 		size = 0;
-		
-		for (int i = 0; i < SIZE; i++)
-		{
-			vertex[i] = NULL;
-			list[i] = NULL;
-		}
+		root = nullptr;
 	}
 
-	void push(T data)
+	Node* create_node(T data)
 	{
-		if (size >= SIZE)
+		Node* newNode = new Node;
+
+		newNode->data = data;
+		newNode->left = nullptr;
+		newNode->right = nullptr;
+
+		size++;
+
+		return newNode;
+	}
+
+	void insert(T data)
+	{
+		if (root == nullptr)
 		{
-			cout << "Adjacency list overflow" << endl;
+			root = create_node(data);
 		}
 		else
 		{
-			vertex[size++] = data;
+			Node* currentNode = root;
+
+			while (currentNode != nullptr)
+			{
+				if (currentNode->data == data)
+				{
+					return;
+				}
+				else if (currentNode->data > data)
+				{
+					if (currentNode->left == nullptr)
+					{
+						currentNode->left = create_node(data);
+
+						return;
+					}
+					else
+					{
+						currentNode = currentNode->left;
+					}
+				}
+				else
+				{
+					if (currentNode->right == nullptr)
+					{
+						currentNode->right = create_node(data);
+
+						return;
+					}
+					else
+					{
+						currentNode = currentNode->right;
+					}
+				}
+			}
 		}
 	}
 
-	void edge(int i, int j)
+	// void insert(T data)
+	// {
+	// 	Node* newNode = new Node;
+	// 	newNode->data = data;
+	// 	newNode->left = nullptr;
+	// 	newNode->right = nullptr;
+	// 
+	// 	if (root == nullptr)
+	// 	{
+	// 		root = newNode;
+	// 	}
+	// 	else
+	// 	{
+	// 		Node* currentNode = root;
+	// 
+	// 		while (currentNode != nullptr)
+	// 		{
+	// 			if (data == currentNode->data)
+	// 			{
+	// 				cout << "Already got same data" << endl;
+	// 
+	// 				delete newNode;
+	// 				return;
+	// 			}
+	// 			if (data > currentNode->data)
+	// 			{
+	// 				currentNode = currentNode->right;
+	// 			}
+	// 			else if (data < currentNode->data)
+	// 			{
+	// 				currentNode = currentNode->left;
+	// 			}
+	// 		}
+	// 
+	// 		newNode = currentNode;
+	// 		size ++;
+	// 	}
+	// }
+
+	void release()
 	{
-		if (size <= 0)
+		Node* deleteNode = root;
+
+		while (root != nullptr)
 		{
-			cout << "adjancency list is empty" << endl;
-		}
-		else if (i >= size || j >= size)
-		{
-			cout << "index out of range" << endl;
-		}
-		else
-		{
-			list[i] = new Node(vertex[j], list[i]);
-			list[j] = new Node(vertex[i], list[j]);
+			while (deleteNode->left != nullptr)
+			{
+				deleteNode = deleteNode->left;
+			}
+			while (deleteNode->right != nullptr)
+			{
+				deleteNode = deleteNode->right;
+			}
+			delete deleteNode;
 		}
 	}
 
-	~AdjacencyList()
+	~Set()
 	{
-		// for (int i = 0; i < SIZE; i++)
-		// {
-		// 		if (list[i] != nullptr)
-		// 		{
-		// 			delete[] list[i];
-		// 		}
-		// }
+		release();
 	}
+
 };
 
 int main()
 {
-	AdjacencyList<char> A;
+	Set<int> set;
 
-	A.push('A');
-	A.push('B');
-	A.push('C');
+	set.insert(5);
+	set.insert(2);
+	set.insert(6);
+	set.insert(6);
 
-	A.edge(0, 1);
 
 	return 0;
 }
