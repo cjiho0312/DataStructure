@@ -123,27 +123,115 @@ public:
 	// 	}
 	// }
 
-	void release()
+	void release(Node * root)
 	{
-		Node* deleteNode = root;
-
-		while (root != nullptr)
+		if (root != nullptr)
 		{
-			while (deleteNode->left != nullptr)
-			{
-				deleteNode = deleteNode->left;
-			}
-			while (deleteNode->right != nullptr)
-			{
-				deleteNode = deleteNode->right;
-			}
-			delete deleteNode;
+			release(root->left);
+
+			release(root->right);
+
+			cout << root->data << endl;
+
+			delete root;
 		}
+	}
+
+	void erase(T data)
+	{
+		Node* currentNode = root;
+		Node* parentNode = nullptr;
+
+		while (currentNode != nullptr && currentNode->data != data)
+		{
+			parentNode = currentNode;
+
+			if (currentNode->data > data)
+			{
+				currentNode = currentNode->left;
+			}
+			else
+			{
+				currentNode = currentNode->right;
+			}	
+		}
+
+		if (currentNode == nullptr)
+		{
+			cout << "the data does not exist" << endl;
+		}
+
+
+		else if (currentNode->left == nullptr && currentNode->right == nullptr)
+		// 자식 0개
+		{
+			if (parentNode != nullptr)
+			{
+				if (parentNode->left == currentNode)
+				{
+					parentNode->left = nullptr;
+				}
+				else
+				{
+					parentNode->right = nullptr;
+				}
+			}
+			else
+			{
+				root = nullptr;
+			}
+
+			delete currentNode;
+		}
+
+		else if ((currentNode->left == nullptr && currentNode->right != nullptr) || (currentNode->right == nullptr && currentNode->left != nullptr))
+		{
+			if (parentNode == nullptr)
+			{
+				if (currentNode->left != nullptr)
+				{
+					root = currentNode->left;
+				}
+				else
+				{
+					root = currentNode->right;
+				}
+			}
+			else if (currentNode->left != nullptr)
+			{
+				parentNode->left = currentNode->left;
+			}
+			else if (currentNode->right != nullptr)
+			{
+				parentNode->right = currentNode->right;
+			}
+
+			delete currentNode;
+		}
+
+		else if (currentNode->left != nullptr && currentNode->right != nullptr)
+		{
+			Node* traceNode = nullptr;
+			Node* childNode = currentNode->right;
+
+			while (childNode->left != nullptr)
+			{
+				traceNode = childNode;
+				childNode = childNode->left;
+			}
+
+			currentNode->data = childNode->data;
+
+			traceNode->left = childNode->right;
+
+			delete childNode;
+		}
+		
 	}
 
 	~Set()
 	{
-		release();
+		release(root);
 	}
 
 };
@@ -152,11 +240,16 @@ int main()
 {
 	Set<int> set;
 
+	set.insert(12);
 	set.insert(5);
 	set.insert(2);
-	set.insert(6);
-	set.insert(6);
+	set.insert(20);
+	set.insert(15);
+	set.insert(13);
+	set.insert(11);
+	set.insert(25);
 
+	set.erase(15);
 
 	return 0;
 }
